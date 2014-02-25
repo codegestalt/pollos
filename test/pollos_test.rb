@@ -4,13 +4,11 @@ module Pollos
   class PollosTest < MiniTest::Test
 
     def setup
-      get_endpoint = "http://status.codegestalt.com/api/v1/apps"
-      post_endpoint = "http://status.codegestalt.com/api/v1/messages"
-      @listener = Listener.new(300, get_endpoint, post_endpoint)
+      @poller = Poller.new(300, ENV["GET_ENDPOINT"], ENV["POST_ENDPOINT"])
     end
 
-    def test_initialize_listener
-      assert_equal @listener.class, Listener
+    def test_poller
+      assert_equal @poller.class, Poller
     end
 
   end

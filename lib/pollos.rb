@@ -2,6 +2,7 @@ require 'open-uri'
 require 'json'
 
 require 'pollos/job'
+require 'pollos/target'
 
 module Pollos
   # Public: Starts a new listener
@@ -35,7 +36,10 @@ module Pollos
     JSON.parse(open(uri){|f|f.read})
   end
 
-  def self.post_apps
+  # Public: Send an Array of Jobs back to the server
+  #
+  # jobs - Array of job objects
+  def self.post_apps(jobs)
   end
 
 end

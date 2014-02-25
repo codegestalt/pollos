@@ -4,22 +4,26 @@ module Pollos
   class JobTest < MiniTest::Test
 
     def setup
-      @apps_response = JSON.parse(File.read("./test/get_request.json"))
+      @get_request = JSON.parse(File.read("./test/get_request.json"))
+      @post_answer = JSON.parse(File.read("./test/post_answer.json"))
+      @job = Job.new(@get_request)
     end
 
-    def test_job_from_hash_returns_array
-      jobs = Job.from_hash(@apps_response)
-      assert_equal Array, jobs.class
+    def test_initialize_from_hash
+      assert_equal 3, @job.targets.count
     end
 
-    def test_job_from_hash_array_includes_job_object
-      jobs = Job.from_hash(@apps_response)
-      assert_equal jobs.first.class, Job
+    def test_jobs_targets_should_return_array
+      assert_equal Array, @job.targets.class
     end
 
-    def test_job_attributes
-      job = Job.new(@apps_response.first)
-      assert_equal job.id, 3301395
+    def test_jobs_targets_should_be_of_type_target
+      assert_equal Target, @job.targets[0].class
+    end
+
+    def test_jobs_to_hash_should_match_get_request
+      hash = @job.to_hash
+      assert_equal @get_request, hash
     end
 
   end

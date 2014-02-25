@@ -1,12 +1,12 @@
 require 'open-uri'
 require 'json'
 
-require 'pollos/request'
+require 'pollos/job'
 
 module Pollos
   # Public: Starts a new listener
   #
-  # integer - Interval in seconds
+  # interval - Seconds-Interval as Integer
   #
   # Returns: A new Listener Object
   #
@@ -27,11 +27,15 @@ module Pollos
   end
 
   # Public: Fetches the Hash of Apps from the API
-  def self.get_request(uri)
+  #
+  # uri - The URI of the application endpoint
+  #
+  # Returns: A Hash
+  def self.get_apps(uri)
     JSON.parse(open(uri){|f|f.read})
   end
 
-  def self.post_answer
+  def self.post_apps
   end
 
 end

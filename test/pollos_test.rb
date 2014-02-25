@@ -11,9 +11,5 @@ module Pollos
       assert_equal @poller.class, Poller
     end
 
-    def test_get_request
-      assert_equal Pollos.get_request(GET_ENDPOINT).class, Hash
-    end
-
   end
 end

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 3301395,
+    "endpoint_url": "http://codegestalt.com",
+    "endpoint_http_method": "GET"
+  },
+  {
+    "id": 3301396,
+    "endpoint_url": "http://bisser.ch",
+    "endpoint_http_method": "GET"
+  },
+  {
+    "id": 3301397,
+    "endpoint_url": "http://help.lehrplaene.ch",
+    "endpoint_http_method": "GET"
+  }
+]

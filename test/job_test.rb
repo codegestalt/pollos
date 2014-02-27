@@ -14,16 +14,22 @@ module Pollos
     end
 
     def test_jobs_targets_should_return_array
-      assert_equal Array, @job.targets.class
+      assert_kind_of Array, @job.targets
     end
 
     def test_jobs_targets_should_be_of_type_target
-      assert_equal Target, @job.targets[0].class
+      assert_kind_of Target, @job.targets[0]
     end
 
     def test_jobs_to_hash_should_match_get_request
       hash = @job.to_hash
       assert_equal @get_request, hash
+    end
+
+    def test_dispatch_should_return_array_with_target_objects
+      dispatched_job = @job.dispatch!
+      assert_kind_of Array, dispatched_job
+
     end
 
   end

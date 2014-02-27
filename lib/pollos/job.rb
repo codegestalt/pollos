@@ -17,5 +17,12 @@ module Pollos
       self.targets.each {|t| array << t.to_hash}
       array
     end
+
+    # Public: Tells each job to go and check their endpoint
+    #
+    # Returns: An Array of updated Targets
+    def dispatch!
+    end
+
   end
 end

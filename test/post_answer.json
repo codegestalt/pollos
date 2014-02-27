@@ -3,27 +3,21 @@
     "id": 3301395,
     "endpoint_url": "http://codegestalt.com",
     "endpoint_http_method": "GET",
-    "http_status_code": "404",
-    "request_sent_timestamp": "2014-02-25 14:34:22 +0100",
-    "answer_received_timestamp": "2014-02-25 14:34:24 +0100",
-    "timeout": "false"
+    "http_status_code": "200",
+    "response_time": "0.273051"
   },
   {
     "id": 3301396,
     "endpoint_url": "http://bisser.ch",
     "endpoint_http_method": "GET",
     "http_status_code": "404",
-    "request_sent_timestamp": "2014-02-25 14:34:22 +0100",
-    "answer_received_timestamp": "2014-02-25 14:34:24 +0100",
-    "timeout": "false"
+    "response_time": "0.273051"
   },
   {
     "id": 3301397,
     "endpoint_url": "http://help.lehrplaene.ch",
     "endpoint_http_method": "GET",
     "http_status_code": "404",
-    "request_sent_timestamp": "2014-02-25 14:34:22 +0100",
-    "answer_received_timestamp": "2014-02-25 14:34:24 +0100",
-    "timeout": "false"
+    "response_time": "0.273051"
   }
 ]

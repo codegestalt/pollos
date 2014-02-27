@@ -1,5 +1,6 @@
-require 'open-uri'
+require 'net/http'
 require 'json'
+require 'benchmark'
 
 require 'pollos/job'
 require 'pollos/target'

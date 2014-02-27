@@ -26,11 +26,19 @@ module Pollos
       assert_equal @get_request, hash
     end
 
-    def test_dispatch_should_return_array_with_target_objects
-      dispatched_job = @job.dispatch!
-      assert_kind_of Array, dispatched_job
-
+    def test_fetch_targets_should_update_target_objects
+      @job.fetch_targets!
+      @job.targets.each {|t|
+        assert_kind_of Float, t.response_time
+        assert_kind_of String, t.http_status_code
+      }
     end
+
+    # TODO: Check if the Hash matches the requirements
+    # def test_fetch_targets_to_hash_should_match_answer
+    #   @job.fetch_targets!
+    #   assert_match @post_answer, @job.to_hash
+    # end
 
   end
 end

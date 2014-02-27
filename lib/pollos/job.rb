@@ -19,9 +19,8 @@ module Pollos
     end
 
     # Public: Tells each job to go and check their endpoint
-    #
-    # Returns: An Array of updated Targets
-    def dispatch!
+    def fetch_targets!
+      self.targets.each {|t| t.fetch!}
     end
 
   end

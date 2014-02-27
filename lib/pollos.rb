@@ -1,4 +1,5 @@
 require 'net/http'
+require 'rest_client'
 require 'json'
 require 'benchmark'
 
@@ -9,12 +10,16 @@ module Pollos
   # Public: Starts a new listener
   #
   # interval - Seconds-Interval as Integer
+  # source - URL of the source where we get our JSON string
+  # target - URL of the target to send the response to
   #
   # Returns: A new Listener Object
   #
   class Poller
-    def initialize(interval)
+    def initialize(interval, source, target)
       @interval = interval
+      @source = source
+      @target = target
     end
 
     # Runs the polling process
@@ -22,25 +27,16 @@ module Pollos
     # Returns: Nothing, can only die
     def run!
       loop do
-        puts "Sending Request!"
+        job = Job.new(open(@source))
+        job.fetch_targets!
+        post_data!(job.to_hash)
         sleep(@interval)
       end
     end
-  end
 
-  # Public: Fetches the Hash of Apps from the API
-  #
-  # uri - The URI of the application endpoint
-  #
-  # Returns: A Hash
-  def self.get_apps(uri)
-    JSON.parse(open(uri){|f|f.read})
-  end
-
-  # Public: Send an Array of Jobs back to the server
-  #
-  # jobs - Array of job objects
-  def self.post_apps(jobs)
+    def post_data!(data)
+        Net::HTTP.post_form(URI.parse(@target), {'data'=>data})
+    end
   end
 
 end

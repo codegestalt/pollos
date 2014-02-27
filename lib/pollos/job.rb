@@ -1,6 +1,7 @@
 module Pollos
   class Job
-    def initialize(hash)
+    def initialize(json)
+      hash = JSON.parse(json)
       hash.each {|h| targets << Target.new(h)}
     end
 

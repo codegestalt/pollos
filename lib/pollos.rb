@@ -26,15 +26,19 @@ module Pollos
     # Returns: Nothing, can only die
     def run!
       loop do
-        job = Job.new(open(@source))
+        job = Job.new(get_apps)
         job.fetch_targets!
-        post_data!(job.to_hash)
+        post_messages!(job.to_hash)
         sleep(@interval)
       end
     end
 
-    def post_data!(data)
-        Net::HTTP.post_form(URI.parse(@target), {'data'=>data})
+    def get_apps
+      Net::HTTP.get(URI.parse(@source))
+    end
+
+    def post_messages!(hash)
+      Net::HTTP.post_form(URI.parse(@target), {'data'=>hash.to_json})
     end
   end
 

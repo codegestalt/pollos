@@ -12,8 +12,6 @@ module Pollos
                           endpoint_url: "http://nonexistenturl.ch",
                           endpoint_http_method: "GET"
                         }
-
-      @post_answer = JSON.parse(File.read("./test/fixtures/post_answer.json")).first
     end
 
     def test_target_object

@@ -4,11 +4,10 @@ module Pollos
   class PollosTest < MiniTest::Test
 
     def setup
-      @poller = Poller.new(300)
+      # @poller = Poller.new(300)
     end
 
-    def test_initialize_poller
-      assert_equal @poller.class, Poller
+    def test_poller
     end
 
   end

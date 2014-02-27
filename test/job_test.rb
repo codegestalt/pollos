@@ -4,8 +4,8 @@ module Pollos
   class JobTest < MiniTest::Test
 
     def setup
-      @get_request = JSON.parse(File.read("./test/get_request.json"))
-      @post_answer = JSON.parse(File.read("./test/post_answer.json"))
+      @get_request = JSON.parse(File.read("./test/fixtures/get_request.json"))
+      @post_answer = JSON.parse(File.read("./test/fixtures/post_answer.json"))
       @job = Job.new(@get_request)
     end
 

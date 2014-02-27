@@ -13,7 +13,7 @@ module Pollos
                           endpoint_http_method: "GET"
                         }
 
-      @post_answer = JSON.parse(File.read("./test/post_answer.json")).first
+      @post_answer = JSON.parse(File.read("./test/fixtures/post_answer.json")).first
     end
 
     def test_target_object

@@ -4,10 +4,11 @@ module Pollos
   class PollosTest < MiniTest::Test
 
     def setup
-      # @poller = Poller.new(300)
+      @poller = Poller.new(5, "http://codegestalt.com", "http://codegestalt.com")
     end
 
-    def test_poller
+    def test_initializer_returns_valid_poller
+      assert_kind_of Poller, @poller
     end
 
   end

@@ -21,10 +21,11 @@ module Pollos
       assert_kind_of Target, @job.targets[0]
     end
 
-    # def test_jobs_to_hash_should_match_get_request
-    #   hash = @job.to_hash
-    #   assert_match @get_request, hash.to_json
-    # end
+    def test_fetch_targets_returns_same_amount_of_targets
+      @job.fetch_targets!
+      job_to_hash_count = @job.to_hash.count
+      assert_equal 3, job_to_hash_count
+    end
 
     def test_fetch_targets_should_update_target_objects
       @job.fetch_targets!

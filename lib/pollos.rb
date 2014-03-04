@@ -4,7 +4,6 @@ require 'benchmark'
 
 require 'pollos/poller'
 require 'pollos/job'
-require 'pollos/messenger'
 require 'pollos/target'
 
 module Pollos

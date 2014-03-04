@@ -37,6 +37,7 @@ module Pollos
       Net::HTTP.get(URI.parse(@source))
     end
 
+    # hash - a Ruby hash of the Job
     def post_messages!(hash)
       Net::HTTP.post_form(URI.parse(@target), {'data'=>hash.to_json})
     end

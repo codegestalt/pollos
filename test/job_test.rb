@@ -21,25 +21,5 @@ module Pollos
       assert_kind_of Target, @job.targets[0]
     end
 
-    def test_fetch_targets_returns_same_amount_of_targets
-      @job.fetch_targets!
-      job_to_hash_count = @job.to_hash.count
-      assert_equal 3, job_to_hash_count
-    end
-
-    def test_fetch_targets_should_update_target_objects
-      @job.fetch_targets!
-      @job.targets.each {|t|
-        assert_kind_of Float, t.response_time
-        assert_kind_of String, t.http_status_code
-      }
-    end
-
-    # TODO: Check if the Hash matches the requirements
-    # def test_fetch_targets_to_hash_should_match_answer
-    #   @job.fetch_targets!
-    #   assert_match @post_answer, @job.to_hash
-    # end
-
   end
 end

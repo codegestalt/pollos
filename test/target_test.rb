@@ -4,6 +4,13 @@ module Pollos
   class TargetTest < MiniTest::Test
 
     def setup
+      stub_request(:head, "http://nonexistenturl.ch/").
+        to_raise(SocketError)
+
+      stub_request(:head, "http://codegestalt.com/").
+        with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => "", :headers => {})
+
       @valid_target = { id: 1,
                        endpoint_url: "http://codegestalt.com",
                        endpoint_http_method: "GET"
@@ -34,9 +41,6 @@ module Pollos
     def test_rescue_socket_errors
       target = Target.new(@invalid_target)
       assert_equal "Got socket error", target.fetch!
-    end
-
-    def test_to_hash_matches_answer_format
     end
 
   end
